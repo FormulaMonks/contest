@@ -1,6 +1,8 @@
 require "test/unit"
 
 class Test::Unit::TestCase
+  def default_test; end
+
   def self.setup(&block)
     setup_blocks << block
   end

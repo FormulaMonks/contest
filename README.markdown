@@ -47,6 +47,14 @@ are `setup`, `context` and `test`:
       end
     end
 
+You can run it normaly, it's Test::Unit after all. If you want to run a particular test, say "yet more tests", try this:
+
+    $ testrb my_test.rb -n test_yet_more_tests
+
+Or with a regular expression:
+
+    $ testrb my_test.rb -n /yet_more_tests/
+
 Installation
 ------------
 
@@ -56,7 +64,7 @@ Installation
 License
 -------
 
-Copyright (c) 2009 Damian Janowski for Citrusbyte
+Copyright (c) 2009 Damian Janowski and Michel Martens for Citrusbyte
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
