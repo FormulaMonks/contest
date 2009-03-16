@@ -1,0 +1,80 @@
+Contest
+=======
+
+Contexts for Test::Unit.
+
+Description
+-----------
+
+Write declarative tests with nested contexts without performance
+penalties. Contest is less than 40 lines and gets the job done.
+
+Usage
+-----
+
+Declare your tests as you would in RSpec or Shoulda. The keywords here
+are `setup`, `context` and `test`:
+
+    require 'contest'
+
+    class SomeTest < Test::Unit::TestCase
+      setup do
+        @value = 1
+      end
+
+      test "sample test" do
+        assert_equal 1, @value
+      end
+
+      context "a context" do
+        setup do
+          @value += 1
+        end
+
+        test "more tests" do
+          assert_equal 2, @value
+        end
+
+        context "a nested context" do
+          setup do
+            @value += 1
+          end
+
+          test "yet more tests" do
+            assert_equal 3, @value
+          end
+        end
+      end
+    end
+
+Installation
+------------
+
+    $ gem sources -a http://gems.github.com (you only have to do this once)
+    $ sudo gem install citrusbyte-contest
+
+License
+-------
+
+Copyright (c) 2009 Damian Janowski
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
