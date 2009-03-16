@@ -56,7 +56,7 @@ Installation
 License
 -------
 
-Copyright (c) 2009 Damian Janowski
+Copyright (c) 2009 Damian Janowski for Citrusbyte
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
