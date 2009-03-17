@@ -1,8 +1,21 @@
 require "test/unit"
 
-class Test::Unit::TestCase
-  def default_test; end
+# Test::Unit loads a default test if the suite is empty, and the only
+# purpose of that test is to fail. As having empty contexts is a common
+# practice, we decided to overwrite TestSuite#empty? in order to
+# allow them. Having a failure when no tests have been defined seems
+# counter-intuitive.
+class Test::Unit::TestSuite
+  def empty?
+    false
+  end
+end
 
+# We added setup, test and context as class methods, and the instance
+# method setup now iterates on the setup blocks. Note that all setup
+# blocks must be defined with the block syntax. Adding a setup instance
+# method defeats the purpose of this library.
+class Test::Unit::TestCase
   def self.setup(&block)
     setup_blocks << block
   end

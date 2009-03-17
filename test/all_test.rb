@@ -39,3 +39,19 @@ class FooTest < Test::Unit::TestCase
     end
   end
 end
+
+class BarTest < Test::Unit::TestCase
+  setup do
+    @value = 1
+  end
+
+  context "some context" do
+    setup do
+      @value += 1
+    end
+
+    test "another truth" do
+      assert_equal 2, @value
+    end
+  end
+end
