@@ -12,8 +12,7 @@ penalties. Contest is less than 100 lines of code and gets the job done.
 Usage
 -----
 
-Declare your tests as you would in RSpec or Shoulda. The keywords here
-are `setup`, `context` and `test`, :
+Declare your tests as you would in RSpec or Shoulda:
 
     require 'contest'
 
