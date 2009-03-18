@@ -44,10 +44,14 @@ private
   end
 
   def self.context_name(name)
-    "#{name.gsub(/(^| )(\w)/) { $2.upcase }}Test".to_sym
+    "Test#{sanitize_name(name).gsub(/(^| )(\w)/) { $2.upcase }}".to_sym
   end
 
   def self.test_name(name)
-    "test_#{name.gsub(/\s+/,'_')}".to_sym
+    "test_#{sanitize_name(name).gsub(/\s+/,'_')}".to_sym
+  end
+
+  def self.sanitize_name(name)
+    name.gsub(/\W+/, ' ')
   end
 end

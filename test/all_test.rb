@@ -9,6 +9,9 @@ class FooTest < Test::Unit::TestCase
     assert_equal 1, @value
   end
 
+  context "context's non-word characters" do
+  end
+
   context "some context" do
     setup do
       @value += 1
