@@ -7,7 +7,7 @@ Description
 -----------
 
 Write declarative tests with nested contexts without performance
-penalties. Contest is less than 40 lines and gets the job done.
+penalties. Contest is less than 100 lines of code and gets the job done.
 
 Usage
 -----

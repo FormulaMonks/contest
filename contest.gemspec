@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = 'contest'
   s.version = '0.0.5'
-  s.summary = %{Contexts for Test::Unit}
+  s.summary = %{Write more readable tests in Test::Unit with this tiny script.}
   s.date = %q{2009-03-16}
   s.author = "Damian Janowski"
   s.email = "damian.janowski@gmail.com"
