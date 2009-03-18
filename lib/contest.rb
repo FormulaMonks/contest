@@ -37,6 +37,11 @@ class Test::Unit::TestCase
     define_method(test_name(name), &block)
   end
 
+  class << self
+    alias_method :should, :test
+    alias_method :describe, :context
+  end
+
 private
 
   def self.setup_blocks

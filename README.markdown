@@ -13,7 +13,7 @@ Usage
 -----
 
 Declare your tests as you would in RSpec or Shoulda. The keywords here
-are `setup`, `context` and `test`:
+are `setup`, `context` and `test`, :
 
     require 'contest'
 
@@ -43,6 +43,24 @@ are `setup`, `context` and `test`:
           test "yet more tests" do
             assert_equal 3, @value
           end
+        end
+      end
+    end
+
+For your convenience, `context` is aliased as `describe` and `test` is aliased as `should`, so this is valid:
+
+    class SomeTest < Test::Unit::TestCase
+      setup do
+        @value = 1
+      end
+
+      describe "something" do
+        setup do
+          @value += 1
+        end
+
+        should "equal 2" do
+          assert_equal 2, @value
         end
       end
     end

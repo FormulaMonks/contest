@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'contest'
-  s.version = '0.0.4'
+  s.version = '0.0.5'
   s.summary = %{Contexts for Test::Unit}
   s.date = %q{2009-03-16}
   s.author = "Damian Janowski"

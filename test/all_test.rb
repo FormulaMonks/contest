@@ -41,6 +41,16 @@ class FooTest < Test::Unit::TestCase
       assert_equal 2, @value
     end
   end
+
+  describe "context with should" do
+    setup do
+      @value += 1
+    end
+
+    should "yet another truth" do
+      assert_equal 2, @value
+    end
+  end
 end
 
 class BarTest < Test::Unit::TestCase
