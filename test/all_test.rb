@@ -9,7 +9,10 @@ class FooTest < Test::Unit::TestCase
     assert_equal 1, @value
   end
 
-  context "context's non-word characters" do
+  context "context's non-word characters " do
+    should "run the test inside" do
+      assert_equal 1, @value
+    end
   end
 
   context "some context" do
@@ -61,6 +64,10 @@ class BarTest < Test::Unit::TestCase
   context "some context" do
     setup do
       @value += 1
+    end
+
+    test "another truth" do
+      assert_equal 2, @value
     end
 
     test "another truth" do

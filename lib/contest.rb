@@ -57,6 +57,6 @@ private
   end
 
   def self.sanitize_name(name)
-    name.gsub(/\W+/, ' ')
+    name.gsub(/\W+/, ' ').strip
   end
 end

@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name = 'contest'
-  s.version = '0.0.5'
+  s.version = '0.0.6'
   s.summary = %{Write more readable tests in Test::Unit with this tiny script.}
   s.date = %q{2009-03-16}
-  s.author = "Damian Janowski"
+  s.authors = ["Damian Janowski", "Michel Martens"]
   s.email = "damian.janowski@gmail.com"
   s.homepage = "http://github.com/citrusbyte/contest"
 
