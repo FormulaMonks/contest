@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'contest'
-  s.version = '0.0.6'
+  s.version = '0.0.7'
   s.summary = %{Write more readable tests in Test::Unit with this tiny script.}
   s.date = %q{2009-03-16}
   s.authors = ["Damian Janowski", "Michel Martens"]
@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.specification_version = 2 if s.respond_to? :specification_version=
 
-  s.files = <%= FileList['lib/**/*.rb', 'README*', 'LICENSE', 'Rakefile', 'test/**/*.*'].inspect %>
+  s.files = <%= FileList['lib/**/*.rb', 'README*', 'LICENSE', 'Rakefile', 'rails/**/*', 'test/**/*.*'].inspect %>
 
   s.require_paths = ['lib']
 
