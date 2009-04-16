@@ -4,6 +4,10 @@ class FooTest < Test::Unit::TestCase
   setup do
     @value = 1
   end
+  
+  teardown do
+    @value = nil
+  end
 
   test "truth" do
     assert_equal 1, @value

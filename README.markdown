@@ -6,8 +6,7 @@ Contexts for Test::Unit.
 Description
 -----------
 
-Write declarative tests with nested contexts without performance
-penalties. Contest is less than 100 lines of code and gets the job done.
+Write declarative tests using nested contexts without performance penalties. Contest is less than 100 lines of code and gets the job done.
 
 Usage
 -----
@@ -19,6 +18,10 @@ Declare your tests as you would in RSpec or Shoulda:
     class SomeTest < Test::Unit::TestCase
       setup do
         @value = 1
+      end
+      
+      teardown do
+        @value = nil
       end
 
       test "sample test" do
@@ -64,7 +67,7 @@ For your convenience, `context` is aliased as `describe` and `test` is aliased a
       end
     end
 
-You can run it normaly, it's Test::Unit after all. If you want to run a particular test, say "yet more tests", try this:
+You can run it normally, it's Test::Unit after all. If you want to run a particular test, say "yet more tests", try this:
 
     $ testrb my_test.rb -n test_yet_more_tests
 
