@@ -25,15 +25,11 @@ class Test::Unit::TestCase
   end
 
   def setup
-    self.class.setup_blocks.each do |block|
-      instance_eval(&block)
-    end
+    eval_blocks(:setup_blocks, self.class.ancestors.reverse)
   end
 
   def teardown
-    self.class.teardown_blocks.each do |block|
-      instance_eval(&block)
-    end
+    eval_blocks(:teardown_blocks, self.class.ancestors)
   end
 
   def self.context(name, &block)
@@ -54,6 +50,15 @@ class Test::Unit::TestCase
   end
 
 private
+
+  def eval_blocks(type, ancestors)
+    ancestors.each do |ancestor|
+      next unless ancestor.respond_to?(type)
+      ancestor.send(type).each do |block|
+        instance_eval(&block)
+      end
+    end
+  end
 
   def self.setup_blocks
     @setup_blocks ||= []
