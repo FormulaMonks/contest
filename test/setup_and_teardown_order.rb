@@ -1,11 +1,15 @@
 require File.dirname(__FILE__) + "/../lib/contest"
 
 class Test::Unit::TestCase
-  setup { puts "Grandparent Setup" }
+  def setup
+    puts "Grandparent Setup"
+  end
 end
 
 class Test::Unit::TestCase
-  teardown { puts "Grandparent Teardown" }
+  def teardown
+    puts "Grandparent Teardown"
+  end
 end
 
 class MidLayerTest < Test::Unit::TestCase

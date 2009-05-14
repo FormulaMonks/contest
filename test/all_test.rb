@@ -79,3 +79,36 @@ class BarTest < Test::Unit::TestCase
     end
   end
 end
+
+class TestBaz < Test::Unit::TestCase
+  def foo
+    42
+  end
+
+  def setup
+    @value = 1
+    super
+  end
+
+  context "some context" do
+    def setup
+      super
+      @value += 2
+    end
+      
+    test "a helper" do
+      assert_equal 42, foo
+      assert_equal 3, @value
+    end
+    
+    context "another context" do
+      setup do
+        @value += 3
+      end
+
+      test "blah" do
+        assert_equal 6, @value
+      end
+    end
+  end
+end

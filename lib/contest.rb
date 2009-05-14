@@ -17,25 +17,22 @@ end
 # of this library.
 class Test::Unit::TestCase
   def self.setup(&block)
-    setup_blocks << block
+    define_method :setup do
+      super
+      instance_eval(&block)
+    end
   end
 
   def self.teardown(&block)
-    teardown_blocks << block
-  end
-
-  def setup
-    eval_blocks(:setup_blocks, self.class.ancestors.reverse)
-  end
-
-  def teardown
-    eval_blocks(:teardown_blocks, self.class.ancestors)
+    define_method :teardown do
+      instance_eval(&block)
+      super
+    end
   end
 
   def self.context(name, &block)
-    subclass = Class.new(self.superclass)
-    subclass.setup_blocks.unshift(*setup_blocks)
-    subclass.teardown_blocks.unshift(*teardown_blocks)
+    subclass = Class.new(self)
+    remove_tests(subclass)
     subclass.class_eval(&block)
     const_set(context_name(name), subclass)
   end
@@ -51,23 +48,6 @@ class Test::Unit::TestCase
 
 private
 
-  def eval_blocks(type, ancestors)
-    ancestors.each do |ancestor|
-      next unless ancestor.respond_to?(type)
-      ancestor.send(type).each do |block|
-        instance_eval(&block)
-      end
-    end
-  end
-
-  def self.setup_blocks
-    @setup_blocks ||= []
-  end
-
-  def self.teardown_blocks
-    @teardown_blocks ||= []
-  end
-
   def self.context_name(name)
     "Test#{sanitize_name(name).gsub(/(^| )(\w)/) { $2.upcase }}".to_sym
   end
@@ -78,5 +58,11 @@ private
 
   def self.sanitize_name(name)
     name.gsub(/\W+/, ' ').strip
+  end
+
+  def self.remove_tests(subclass)
+    subclass.public_instance_methods.grep(/^test_/).each do |meth|
+      subclass.send(:undef_method, meth.to_sym)
+    end
   end
 end
