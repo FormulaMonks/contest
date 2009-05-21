@@ -18,7 +18,7 @@ end
 class Test::Unit::TestCase
   def self.setup(&block)
     define_method :setup do
-      super
+      super(&block)
       instance_eval(&block)
     end
   end
@@ -26,7 +26,7 @@ class Test::Unit::TestCase
   def self.teardown(&block)
     define_method :teardown do
       instance_eval(&block)
-      super
+      super(&block)
     end
   end
 
