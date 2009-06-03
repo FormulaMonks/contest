@@ -19,7 +19,7 @@ Declare your tests as you would in RSpec or Shoulda:
       setup do
         @value = 1
       end
-      
+
       teardown do
         @value = nil
       end
@@ -78,8 +78,16 @@ Or with a regular expression:
 Installation
 ------------
 
-    $ gem sources -a http://gems.github.com (you only have to do this once)
-    $ sudo gem install citrusbyte-contest
+    $ sudo gem install contest
+
+If you want to use it with Rails, add this to config/environment.rb:
+
+    config.gem "contest"
+
+Then you can vendor the gem:
+
+    rake gems:install
+    rake gems:unpack
 
 License
 -------
