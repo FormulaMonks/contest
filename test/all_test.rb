@@ -95,10 +95,18 @@ class TestBaz < Test::Unit::TestCase
       super
       @value += 2
     end
+
+    def bar
+      foo + 1
+    end
       
     test "a helper" do
       assert_equal 42, foo
       assert_equal 3, @value
+    end
+
+    test "another helper" do
+      assert_equal 43, bar
     end
     
     context "another context" do
