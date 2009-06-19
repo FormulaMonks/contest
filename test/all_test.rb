@@ -99,7 +99,7 @@ class TestBaz < Test::Unit::TestCase
     def bar
       foo + 1
     end
-      
+
     test "a helper" do
       assert_equal 42, foo
       assert_equal 3, @value
@@ -108,7 +108,7 @@ class TestBaz < Test::Unit::TestCase
     test "another helper" do
       assert_equal 43, bar
     end
-    
+
     context "another context" do
       setup do
         @value += 3
@@ -119,4 +119,6 @@ class TestBaz < Test::Unit::TestCase
       end
     end
   end
+
+  context "empty context"
 end

@@ -33,7 +33,7 @@ class Test::Unit::TestCase
   def self.context(name, &block)
     subclass = Class.new(self)
     remove_tests(subclass)
-    subclass.class_eval(&block)
+    subclass.class_eval(&block) if block_given?
     const_set(context_name(name), subclass)
   end
 
