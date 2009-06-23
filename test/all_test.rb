@@ -74,7 +74,7 @@ class BarTest < Test::Unit::TestCase
       assert_equal 2, @value
     end
 
-    test "another truth" do
+    test "yet another truth" do
       assert_equal 2, @value
     end
   end
