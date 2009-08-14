@@ -19,6 +19,12 @@ class FooTest < Test::Unit::TestCase
     end
   end
 
+  context "context", "with multiple", "arguments " do
+    should "run the test inside" do
+      assert_equal 1, @value
+    end
+  end
+
   context "some context" do
     setup do
       @value += 1
