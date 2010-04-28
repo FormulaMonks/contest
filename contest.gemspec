@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Damian Janowski", "Michel Martens"]
   s.email       = ["djanowski@dimaion.com", "michel@soveran.com"]
   s.homepage  = "http://github.com/citrusbyte/contest"
-  s.files = ["lib/contest.rb", "README.markdown", "LICENSE", "Rakefile", "rails/init.rb", "test/all_test.rb", "test/setup_and_teardown_order.rb"]
+  s.files = ["lib/contest.rb", "README.markdown", "LICENSE", "Rakefile", "rails/init.rb", "test/all_test.rb", "test/setup_and_teardown_order_test.rb"]
   s.rubyforge_project = "contest"
 end
 
