@@ -1,4 +1,5 @@
-require File.dirname(__FILE__) + "/../lib/contest"
+require File.expand_path(File.join("..", "lib", "contest"),
+                         File.dirname(__FILE__))
 
 class FooTest < Test::Unit::TestCase
   setup do
