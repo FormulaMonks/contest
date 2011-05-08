@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'contest'
-  s.version     = '0.1.2'
+  s.version     = '0.1.3'
   s.summary     = %{Write more readable tests in Test::Unit with this tiny script.}
   s.description = %{Write declarative tests using nested contexts without performance penalties. Contest is less than 100 lines of code and gets the job done.}
   s.authors     = ["Damian Janowski", "Michel Martens"]
