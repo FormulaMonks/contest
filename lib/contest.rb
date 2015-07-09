@@ -32,13 +32,24 @@ class Test::Unit::TestCase
 
   def self.context(*name, &block)
     subclass = Class.new(self)
+    @context_subclasses ||= []
+    @context_subclasses << subclass
     remove_tests(subclass)
     subclass.class_eval(&block) if block_given?
     const_set(context_name(name.join(" ")), subclass)
   end
 
   def self.test(name, &block)
-    define_method(test_name(name), &block)
+    method_name = test_name(name)
+    # When adding new methods to a context's parent context, avoiding adding them to any context
+    # subclasses via inheritance. Note that a subcontext can have its own test called "name"; don't
+    # undefine it.
+    contexts_without_matching_test_name = (@context_subclasses || []).reject do |context|
+      context.instance_methods.include?(method_name.to_s)
+    end
+
+    define_method(method_name, &block)
+    contexts_without_matching_test_name.each { |subclass| subclass.send(:undef_method, method_name) }
   end
 
   class << self
