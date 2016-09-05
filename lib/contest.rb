@@ -16,17 +16,17 @@ end
 # block syntax. Adding setup or teardown instance methods defeats the purpose
 # of this library.
 class Test::Unit::TestCase
-  def self.setup(&block)
+  def self.setup(*args, &block)
     define_method :setup do
-      super(&block)
-      instance_eval(&block)
+      super(*args, &block) if defined?(super)
+      instance_eval(&block) if block
     end
   end
 
-  def self.teardown(&block)
+  def self.teardown(*args, &block)
     define_method :teardown do
-      instance_eval(&block)
-      super(&block)
+      instance_eval(&block) if block
+      super(*args, &block) if defined?(super)
     end
   end
 
